@@ -1,25 +1,25 @@
-// let greet :Function;
+// classes
 
-// example 1
-let greet:(a:string,b:string)=> void;
-greet = (name:string,greeting:string)=>{
-    console.log(`${name} says ${greeting}`);
-}
-// example 2
-let calc:(a:number,b:number,c:string) =>number;
-calc = (numOne:number,numTwo:number,action:string)=>{
-    if(action==='add'){
-        return numOne + numTwo;
+class Invoice {
+    client:string;
+    details:string;
+    amount:number;
+
+    constructor(c:string,d:string,a:number){
+        this.client = c;
+        this.details = d;
+        this.amount = a;
     }
-    else{
-        return numOne - numTwo;
+
+    format(){
+        return `${this.client} owes $${this.amount} for ${this.details}`
     }
 }
-// example 3
-let logDetails:(obj:{name:string,age:number})=>void;
 
-type person ={ name:string,age:number}
+const invOne = new Invoice("mario","work on the website",250);
+const invTwo = new Invoice("luigo","work on the website",300);
 
-logDetails = (ninja:person)=>{
-    console.log(`${ninja.name} is ${ninja.age} years old`);
-}
+console.log(invOne,invTwo)
+let invoices: Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
